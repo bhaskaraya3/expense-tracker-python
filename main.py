@@ -31,12 +31,26 @@ def view_expense():
 				print(j,k)
 
 def delete_expense():
-	print("-"*15)
-	print("Just type item name to delete it.")
-	print("-"*15)
+	if emp_list == []:
+		print("-"*15)
+		print("Cannot Delete. No Records Available.")
+		print("-"*15)
+	else:
+		print("-"*15)
+		print("Just type item name to delete it.")
+		print("-"*15)
 
-	delete_item = input("Enter item to delete: ")
+		delete_item = input("Enter item to delete: ")
 
+		for expense in emp_list:
+			if delete_item == expense['item_name']:
+				emp_list.remove(expense)
+				print(f"{delete_item} deleted successfully.")
+			else:
+				print(f"No expense found with item name '{delete_item}'.")
+
+# emp_list.remove({"item_name": "Bus", "amount": 40})
+# {"item_name": "Lunch", "amount": 120}
 emp_list = []
 
 while True:
@@ -53,4 +67,3 @@ while True:
 
 	else:
 		break
-
