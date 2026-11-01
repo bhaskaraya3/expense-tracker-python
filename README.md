@@ -1,44 +1,33 @@
 # Personal Expense Tracker
 
-A beginner Python project built to practise programming logic, functions, dictionaries, lists, and CRUD operations.
+I'm building a simple command-line expense tracker to practise Python and get better at solving problems independently.
 
-## Features
+The idea is pretty simple: keep track of everyday expenses, see where the money goes, and eventually understand spending habits instead of wondering where all the money disappeared.
 
-- **Add Expense:** Enter an item name and amount to store an expense.
-- **View Expenses:** Display all recorded expenses in a structured format.
-- **Delete Expense:** Remove an expense by entering its item name.
-- **Exit:** Exit the application through the menu.
+I'm building it step by step rather than trying to make everything at once.
 
-## Tech Stack
+## so far?
+
+- **Add Expenses:** Enter an item name and its amount to record a new expense.
+- **View Expenses:** Display all the expenses currently stored in the application.
+- **Delete Expenses:** Remove an expense by entering its item name.
+- **Menu System:** Navigate between the available operations using a simple command-line menu.
+
+## I'm using
 
 - Python
 - Lists and Dictionaries
-- Functions and Loops
-- Conditional Statements
+- Functions
+- Loops and Conditional Statements
+- Basic File Handling
 
-## How to Run
+## Curently working on
 
-1. Clone this repository.
-2. Open the project folder in VS Code or your terminal.
-3. Run the Python file:
+I'm currently working on storing expense records in a local file so that the data doesn't disappear when the program closes.
 
-   ```bash
-   python main.py
-   ```
+I'm also figuring out how to keep the file updated whenever an expense is added or deleted.
 
-## Current Limitations
+This part is still a work in progress. The goal is to make the application remember previous expenses whenever it starts again.
 
-- Expenses are stored in memory and are lost when the program exits.
-- Each expense is identified by its item name for deletion.
-- Input validation and expense summaries are not yet implemented.
-
-## Future Improvements
-
-- Save expenses between sessions.
-- Add daily, weekly, and monthly summaries.
-- Calculate category-wise spending.
-- Introduce budgets and savings recommendations.
-
-## Learning Goal
-
-Building this project step by step to strengthen Python fundamentals and develop independent problem-solving skills.
+# Author
+**Bhaskar Arya**
