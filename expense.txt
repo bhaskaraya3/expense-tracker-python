@@ -1,0 +1,1 @@
+[{'item_name': 'eggs', 'amount': 200}, {'item_name': 'food', 'amount': 1000}][{'item_name': 'barber', 'amount': 1000}][{'item_name': 'barber', 'amount': 1000}, {'item_name': 'groceries', 'amount': 1000}]
