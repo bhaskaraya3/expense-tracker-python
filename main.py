@@ -3,30 +3,35 @@ print("2. View Expenses")
 print("3. Delete Expense")
 print("(press any key). Exit")
 
-def stored_txt():
-	file_path = r"D:\desktop\python\~Projects\personal_expense_tracker\expense.txt"
+from pathlib import Path
 
-	file = open(file_path,'r')
+PROJECT_DIR = Path(__file__).resolve().parent
+FILE_PATH = PROJECT_DIR / "expenses.txt"
 
-	if file.read() == '':
-		file_w = open(file_path, 'w')
-		file_w.write(str(emp_list))
+def check_file_exists():
+    if not FILE_PATH.exists():
+        FILE_PATH.touch()
+        print("File created successfully.")
+    else:
+        print("File already exists.")
 
-	else:
-		file_a = open(file_path, 'a')
-		file_a.write(str(emp_list))
+def file_list():
+	with FILE_PATH.open('w',encoding='utf-8') as file:
+		file.write(str(emp_list))
 
 def get_item():
 	item_name = input("Enter Item name: ")
-
 	l_name = item_name.lower().strip()
-
 	return l_name
 
 def get_amount():
-	amount = int(input("Enter Amount: "))
+    while True:
+        amount = int(input("Enter Amount: "))
 
-	return amount
+        if amount <= 0:
+            print("Invalid Amount. Try Again.")
+        else:
+            return amount
 
 def add_expense():
 	item_name = get_item()
@@ -41,7 +46,7 @@ def add_expense():
 
 	emp_list.append(expense)
 
-	stored_txt()
+	file_list()
 
 def view_expense():
 	if emp_list == []:
@@ -62,21 +67,27 @@ def delete_expense():
 		print("-"*15)
 		print("Cannot Delete. No Records Available.")
 		print("-"*15)
-	else:
-		print("-"*15)
-		print("Just type item name to delete it.")
-		print("-"*15)
+		return
 
-		delete_item = input("Enter item to delete: ")
+	print("-"*15)
+	print("Just type item name to delete it.")
+	print("-"*15)
 
-		for expense in emp_list:
-			if delete_item == expense['item_name']:
-				emp_list.remove(expense)
-				print(f"{delete_item} deleted successfully.")
-			else:
-				print(f"No expense found with item name '{delete_item}'.")
-				
+	delete_item = input("Enter item to delete: ").lower().strip()
+
+	for expense in emp_list:
+		if delete_item == expense['item_name']:
+			emp_list.remove(expense)
+			file_list()
+
+			print(f"{delete_item} deleted successfully.")
+			return
+
+	print(f"No expense found with item name '{delete_item}'.")
+
 emp_list = []
+
+check_file_exists()
 
 while True:
 	user_input = int(input("Enter Choice(1-4): "))
@@ -92,3 +103,4 @@ while True:
 
 	else:
 		break
+
